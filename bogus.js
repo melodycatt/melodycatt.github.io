@@ -16,6 +16,7 @@ slider.addEventListener("input", () => {
 })
 
 document.addEventListener("mousemove", (e) => {
+    e.preventDefault()
     if(sliderdrag) {
         y = e.clientY-y0
         x = e.clientX - x0//(x0-e.clientX)
