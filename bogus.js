@@ -205,3 +205,10 @@ bsball.addEventListener("mouseup", () => {
 
 // rgb(255 213 93) rgb(236 178 1) rgb(255 199 38)
 // rgb(133 133 133) rgb(110 110 110) rgb(172 172 172)
+const eulerslider = document.getElementById('eulerslider')
+
+eulerslider.addEventListener("input", () => {
+    eulerslider.max = Math.pow((1 + 1/eulerslider.value), eulerslider.value)
+    eulerslider.step = eulerslider.max / 100
+    eulerslider.style.setProperty('--value', `${Math.round(eulerslider.value / eulerslider.max * 100)}%`)
+})
