@@ -16,7 +16,6 @@ slider.addEventListener("input", () => {
 })
 
 document.addEventListener("mousemove", (e) => {
-    // e.preventDefault()
     if(sliderdrag) {
         y = e.clientY-y0
         x = e.clientX - x0//(x0-e.clientX)
@@ -57,9 +56,6 @@ var bsMouseOffset;
 var bsbarleft = 0;
 var bsbarvalue = 0;
 
-bslider.addEventListener("mousemove", (e) => {
-    // e.preventDefault()
-})
 
 bslider.addEventListener("mouseover", () => {
     barcolour = "rgb(255 213 93)"
@@ -136,7 +132,8 @@ bslider.addEventListener("mousedown", (e) => {
 
 document.addEventListener("mousemove", (e) => {
     if (bsdragging) {
-        console.log((bsbar.getBoundingClientRect().left + e.movementX) <= bsball.getBoundingClientRect().left, (bsbar.getBoundingClientRect().right + e.movementX) >= bsball.getBoundingClientRect().right, bsball.getBoundingClientRect().right, bsbar.getBoundingClientRect().right)
+        console.log('i hate you')
+        e.preventDefault()
         if ((bsbar.getBoundingClientRect().left + e.movementX) <= bsball.getBoundingClientRect().left && (bsbar.getBoundingClientRect().right + e.movementX) >= bsball.getBoundingClientRect().right) {
             bsbarleft += e.movementX
             bsbar.style.left = `${bsbarleft}px`
@@ -209,10 +206,3 @@ bsball.addEventListener("mouseup", () => {
 
 // rgb(255 213 93) rgb(236 178 1) rgb(255 199 38)
 // rgb(133 133 133) rgb(110 110 110) rgb(172 172 172)
-const eulerslider = document.getElementById('eulerslider')
-
-eulerslider.addEventListener("input", () => {
-    eulerslider.max = Math.pow((1 + 1/eulerslider.value), eulerslider.value)
-    eulerslider.step = eulerslider.max / 100
-    eulerslider.style.setProperty('--value', `${Math.round(eulerslider.value / eulerslider.max * 100)}%`)
-})
