@@ -1,0 +1,33 @@
+body {
+    flex-direction: column;
+}
+
+#bsbar {
+    border: 1px solid #858585;
+    width: 129px;
+    height: 7px;
+    border-radius: 5px;
+    position: relative;
+}
+
+#bsball {
+    width: 15px;
+    height: 15px;
+    border-radius: 10px;
+    background-color: rgb(255 199 38);
+    position: relative;
+
+}
+
+#bsballContainer {
+    position: absolute;
+}
+
+#barslider {
+    display: flex;
+    align-items: center;
+}
+
+.slidercontainer {
+    margin-bottom: 150px;
+}
