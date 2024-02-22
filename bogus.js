@@ -4,7 +4,7 @@ x0 = (slider.getBoundingClientRect().right + slider.getBoundingClientRect().left
 
 var sliderdrag = false;
 var slope = 0
-var slidervalue = 0;
+var slidervalue = 0.1;
 
 slider.addEventListener("mousedown", () => {
     console.log("hi")
@@ -33,13 +33,14 @@ document.addEventListener("mouseup", () => {
 })
 
 setInterval(() => {
-    slidervalue += 10 * slope
-    if (slidervalue > 180) {
-        slidervalue = 180
+    slidervalue += 5 * slope
+    if (slidervalue > 100) {
+        slidervalue = 100
     }
-    if (slidervalue < -180) {
-        slidervalue = -180
+    if (slidervalue < 0) {
+        slidervalue = 0
     }
+    slider.style.setProperty('--value', `${slidervalue}%`)
     slider.value = slidervalue
 }, 50);
 
