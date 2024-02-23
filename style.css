@@ -862,3 +862,7 @@ body {
     filter: opacity(0) invert(100%);
   }
 }
+
+.hide {
+  display: none;
+}
