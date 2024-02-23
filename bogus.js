@@ -206,3 +206,49 @@ bsball.addEventListener("mouseup", () => {
 
 // rgb(255 213 93) rgb(236 178 1) rgb(255 199 38)
 // rgb(133 133 133) rgb(110 110 110) rgb(172 172 172)
+
+
+/////////
+/////////
+/////////
+const flappyButton = document.getElementById("flappyButton")
+const flappySlider = document.getElementById("flappySlider")
+var flappy = false
+var flappyVel = 0
+
+function startFlappyBird() {
+    flappyButton.onclick = endFlappyBird
+    flappyButton.innerHTML = "Stop"
+    flappy = true
+    document.addEventListener("keydown", flappyBirdJump)
+    window.requestAnimationFrame(flappyBird)
+}
+
+function endFlappyBird () {
+    flappyButton.onclick = startFlappyBird
+    flappyButton.innerHTML = "Start"
+    flappy = false
+    document.removeEventListener("keydown", flappyBirdJump)
+}
+
+function flappyBird () {
+    console.log("hi", flappyVel, flappySlider.value,  Math.round((flappyVel * 100000))/100000, flappySlider.value + flappyVel)
+    flappySlider.value = (flappySlider.value * 1) + flappyVel
+    flappySlider.style.setProperty("--value", `${flappySlider.value}%`)
+    if (flappySlider.value * 1 <= 0) {
+        flappyVel = 0
+        flappySlider.value = 0
+    } else {
+        flappyVel -= 0.25
+        flappyVel = Math.round((flappyVel * 100000))/100000
+    }
+    if (flappy) {
+        window.requestAnimationFrame(flappyBird)
+    }
+}
+
+function flappyBirdJump (e) {
+    if(e.key == " ") {
+        flappyVel = 2
+    }
+}

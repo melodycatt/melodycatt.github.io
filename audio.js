@@ -175,6 +175,8 @@ function StopAudioRecording() {
     const button = document.getElementById("audioButton")
     button.onclick = startAudioRecording
     button.innerHTML = "Start"
+    recording = false
+
     audioRecorder.stop()
     .then(audioAsblob => { //stopping makes promise resolves to the blob file of the recorded audio
         console.log("stopped with audio Blob:", audioAsblob);
