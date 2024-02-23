@@ -16,7 +16,6 @@ slider.addEventListener("input", () => {
 })
 
 document.addEventListener("mousemove", (e) => {
-    e.preventDefault()
     if(sliderdrag) {
         y = e.clientY-y0
         x = e.clientX - x0//(x0-e.clientX)
@@ -56,6 +55,7 @@ var bsdragging = false;
 var bsMouseOffset;
 var bsbarleft = 0;
 var bsbarvalue = 0;
+
 
 bslider.addEventListener("mouseover", () => {
     barcolour = "rgb(255 213 93)"
@@ -132,7 +132,8 @@ bslider.addEventListener("mousedown", (e) => {
 
 document.addEventListener("mousemove", (e) => {
     if (bsdragging) {
-        console.log((bsbar.getBoundingClientRect().left + e.movementX) <= bsball.getBoundingClientRect().left, (bsbar.getBoundingClientRect().right + e.movementX) >= bsball.getBoundingClientRect().right, bsball.getBoundingClientRect().right, bsbar.getBoundingClientRect().right)
+        console.log('i hate you')
+        e.preventDefault()
         if ((bsbar.getBoundingClientRect().left + e.movementX) <= bsball.getBoundingClientRect().left && (bsbar.getBoundingClientRect().right + e.movementX) >= bsball.getBoundingClientRect().right) {
             bsbarleft += e.movementX
             bsbar.style.left = `${bsbarleft}px`
