@@ -17,7 +17,7 @@ slider.addEventListener("input", () => {
 
 document.addEventListener("mousemove", (e) => {
     if(sliderdrag) {
-        y = e.clientY-y0
+        y = e.clientY - y0
         x = e.clientX - x0//(x0-e.clientX)
         angle = (180 * (y/Math.abs(y) == -1 ? 0: 1)) - Math.round(Math.atan(x/y) * (180/Math.PI)) - 90
         slope = (y - 0) / (Math.abs(x) - 0)
