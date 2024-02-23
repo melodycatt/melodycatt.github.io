@@ -13,6 +13,9 @@
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="bogus.css">
         <script src="bogus.js" defer></script>
+        <script src="audio.js" defer></script>
+        <script src="slidewhistle.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js" integrity="sha512-jduERlz7En1IUZR54bqzpNI64AbffZWR//KJgF71SJ8D8/liKFZ+s1RxmUmB+bhCnIfzebdZsULwOrbVB5f3nQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </head>
     <body>
         <div style="position: absolute; top: 0;">if some of this stuff doesnt look right, it might be your browser. im not sure which ones will break, but i know that most popular ones like chrome and opera should work. not sure about firefox tho.</div>
@@ -27,6 +30,23 @@
                 <div id="bsbar"></div>
                 <div id="bsballContainer"><div id="bsball"></div></div>
             </div>
+        </div>
+        <div class="slidercontainer" style="display: flex; justify-content: center;">
+            <audio controls class="audio-element hide">
+            </audio>
+            <button onclick="startAudioRecording()" id="audioButton">Start</button>
+            <div style="display: flex; flex-direction: column;">
+                <input type="range" id="maxMeter" min="0" max="100" value="0" step="1" disabled style="margin: 10px;"></input>
+                <input type="range" id="volumeMeter" min="0" max="100" value="0" step="1" disabled style="margin: 10px;"></input>
+            </div>
+            <div id="volumeValue" style=" align-self: center;">0</div>
+        </div>    
+        <div class="slidercontainer" style="display: flex; justify-content: center;">
+            <button onclick="startFlappyBird()" id="flappyButton">Start</button>
+            <input type="range" name="slider" id="flappySlider" min="0" max="100" value="0" step="0.000001" disabled>
+        </div>
+        <div class="slidercontainer">
+            <input type="range" name="slider" id="slideWhistle" min="0" max="100" value="0" step="1">
         </div>
     </body>
 </html>
