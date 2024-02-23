@@ -1,17 +1,18 @@
 body {
     flex-direction: column;
+    height: max-content;
 }
 
-input[type=range] {
+input[type="range"] {
     --value: 0.1%;
     border: 1px solid #858585;
     -webkit-appearance: none;
     appearance: none;
     background: linear-gradient(
-        to right, 
-        rgb(255 199 38) 0%, 
-        rgb(255 199 38) var(--value), 
-        rgb(59 59 59) var(--value), 
+        to right,
+        rgb(255 199 38) 0%,
+        rgb(255 199 38) var(--value),
+        rgb(59 59 59) var(--value),
         rgb(59 59 59) 100%
     );
     width: 129px;
@@ -21,34 +22,33 @@ input[type=range] {
     cursor: pointer;
 }
 
-input[type=range]:hover {
+input[type="range"]:hover {
     border: 1px solid rgb(172 172 172);
     background: linear-gradient(
-        to right, 
-        rgb(255 213 93) 0%, 
-        rgb(255 213 93) var(--value), 
-        rgb(59 59 59) var(--value), 
+        to right,
+        rgb(255 213 93) 0%,
+        rgb(255 213 93) var(--value),
+        rgb(59 59 59) var(--value),
         rgb(59 59 59) 100%
     );
 }
 
-input[type=range]:active {
+input[type="range"]:active {
     border: 1px solid rgb(110 110 110);
     background: linear-gradient(
-        to right, 
-        rgb(236 178 1) 0%, 
-        rgb(236 178 1) var(--value), 
-        rgb(59 59 59) var(--value), 
+        to right,
+        rgb(236 178 1) 0%,
+        rgb(236 178 1) var(--value),
+        rgb(59 59 59) var(--value),
         rgb(59 59 59) 100%
     );
 }
 
-input[type=range]:active::-webkit-slider-thumb  {
+input[type="range"]:active::-webkit-slider-thumb {
     background-color: rgb(255 213 93);
 }
 
-
-input[type=range]::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 15px;
@@ -58,20 +58,20 @@ input[type=range]::-webkit-slider-thumb {
     position: relative;
 }
 
-input[type=range]::-webkit-slider-thumb:hover {
+input[type="range"]::-webkit-slider-thumb:hover {
     background-color: rgb(255 213 93);
 }
 
-input[type=range]::-webkit-slider-thumb:active {
+input[type="range"]::-webkit-slider-thumb:active {
     background-color: rgb(236 178 1);
 }
 
 #bsbar {
     background: linear-gradient(
-        to right, 
-        rgb(255 199 38) 0%, 
-        rgb(255 199 38) 0.1%, 
-        rgb(59 59 59) 0.1%, 
+        to right,
+        rgb(255 199 38) 0%,
+        rgb(255 199 38) 0.1%,
+        rgb(59 59 59) 0.1%,
         rgb(59 59 59) 100%
     );
     border: 1px solid #858585;
@@ -88,7 +88,6 @@ input[type=range]::-webkit-slider-thumb:active {
     border-radius: 10px;
     background-color: rgb(255 199 38);
     position: relative;
-
 }
 
 #bsballContainer {
@@ -110,7 +109,7 @@ input[type=range]::-webkit-slider-thumb:active {
     background-size: contain;
     border-radius: 0;
     rotate: 90deg;
-} 
+}
 #flappySlider {
     rotate: -90deg;
 }
