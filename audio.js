@@ -1,5 +1,6 @@
 var audioElementSource = null;
 var audioElement = document.getElementsByClassName("audio-element")[0];
+var recording = false;
 
 var audioRecorder = {
     /** Stores the recorded audio as Blob objects of audio data as the recording continues*/
@@ -45,7 +46,7 @@ var audioRecorder = {
                             volumeMeterEl2.value = Math.sqrt((sumSquares / pcmData.length)) * 100;
                             volumeMeterEl2.style.setProperty("--value", `${volumeMeterEl2.value}%`)
                             console.log(volumeMeterEl.value)
-                            window.requestAnimationFrame(onFrame);
+                            if (recording) window.requestAnimationFrame(onFrame);
                         };
                         window.requestAnimationFrame(onFrame);
                         
@@ -127,6 +128,7 @@ function startAudioRecording() {
     const button = document.getElementById("audioButton")
     button.onclick = StopAudioRecording
     button.innerHTML = "Stop"
+    recording = true
     audioRecorder.start()
     .then(() => { //on success
         console.log("Recording Audio...")    
