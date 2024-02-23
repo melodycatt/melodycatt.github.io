@@ -125,7 +125,7 @@ var audioRecorder = {
 function startAudioRecording() {
     //start recording using the audio recording API
     const button = document.getElementById("audioButton")
-    button.onclick = "StopAudioRecording()"
+    button.onclick = StopAudioRecording
     button.innerHTML = "Stop"
     audioRecorder.start()
     .then(() => { //on success
@@ -171,7 +171,7 @@ function StopAudioRecording() {
     //stop the recording using the audio recording API
     console.log("Stopping Audio Recording...")
     const button = document.getElementById("audioButton")
-    button.onclick = "startAudioRecording()"
+    button.onclick = startAudioRecording
     button.innerHTML = "Start"
     audioRecorder.stop()
     .then(audioAsblob => { //stopping makes promise resolves to the blob file of the recorded audio
