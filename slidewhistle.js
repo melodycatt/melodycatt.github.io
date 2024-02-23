@@ -1,21 +1,20 @@
 const whistle = document.getElementById("slideWhistle")
 var lastnote
-const slideWhistle = new Tone.Sampler({
-    urls: {
-        C6: "C6.wav"
-    },
-    baseUrl: "./img/",
-    onload: () => {
-        console.log("hi")
-        whistle.addEventListener("input", () => {
-            slideWhistle.triggerRelease([lastnote])
-            console.log("hi")
-            console.log(valueToPitch(whistle.value * 1), whistle.value)
-            lastnote = valueToPitch(whistle.value * 1)
-            slideWhistle.triggerAttack([valueToPitch(whistle.value * 1)])
-        })
-    }
-}).toDestination();
+var slideWhistle = new Tone.Oscillator(440, "triangle").toDestination()
+var stopTime
+whistle.addEventListener("input", () => {
+    slideWhistle.set({
+       frequency: whistle.value * 10
+    })
+    console.log(slideWhistle.get(), whistle.value * 10)
+})
+whistle.addEventListener("mousedown", () => {
+    slideWhistle.start()
+})
+document.addEventListener("mouseup", () => {
+    slideWhistle.stop()
+})
+
 
 const Notes = ["C", "D", "E", "F", "G", "A", "B",]
 
