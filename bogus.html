@@ -21,6 +21,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="circle.css">
     <script src="circle.js" defer></script>
+    <script src="cube.js" defer></script>
 
 </head>
 
@@ -38,7 +39,7 @@
         <div id="barslider">
             <div id="bsbar"></div>
             <div id="bsballContainer">
-                <div id="bsball"></div>
+                <div id="bsball" class="bsball"></div>
             </div>
         </div>
     </div>
@@ -69,6 +70,17 @@
             </div>
             <div id="circleSlider" style="position: absolute;"></div>
         </div>
+    </div>
+    <div class="slidercontainer" style="display: flex; justify-content: center; align-items: center;">
+        <input type="range" name="slider" id="wonkySlider" min="0" max="100" value="0" step="1">
+        <div id="wonkyballContainer" style="position: absolute;">
+            <div id="wonkySliderBall" class="bsball"></div>
+        </div>
+        <div id="wonkySliderFill"></div>
+    </div>
+    <div class="slidercontainer">
+        <canvas width="500" height="500" style="background-color: #ffd6e8; border: none; border-radius: 0;" id="cubeCanvas"></canvas>
+        <input type="range" name="slider" id="cubeZSlider" min="-360" max="360" value="0" step="1">
     </div>
 </body>
 

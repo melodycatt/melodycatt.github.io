@@ -249,3 +249,16 @@ function flappyBirdJump (e) {
         flappyVel = 2
     }
 }
+
+
+//////////////////////////////
+
+const wonkySlider = document.getElementById("wonkySlider")
+const wonkySliderFill = document.getElementById("wonkySliderFill")
+const wonkySliderBall = document.getElementById("wonkySliderBall")
+
+wonkySlider.addEventListener("input", () => {
+    wonkySliderFill.style.setProperty("--value", `${wonkySlider.value}%`)
+    console.log((wonkySlider.value - 50) * wonkySlider.getBoundingClientRect().width / 100)
+    wonkySliderBall.style.translate = `0px ${(wonkySlider.value - 50) * wonkySlider.getBoundingClientRect().width / -100}px`
+})
