@@ -57,7 +57,7 @@ ctx.stroke()
 
 const zSlider = document.getElementById("cubeZSlider")
 zSlider.addEventListener("input", () => {
-    zRot = zSlider.value * 1
+    zRot = zSlider.value / (180 / Math.PI)
     var p1 = [(width/2)*Math.cos(-zRot - 0) + x + centerX, (length/2) * Math.sin(zRot - 0) + height / 2 + y + centerY]; // for y rot (400/Math.cos(zRot) + x, ((length/2) * Math.sin(yRot)) * Math.sin(zRot - 0) + height / 2 + y)
     var p2 = [(width/2)*Math.cos(-zRot - 1.5708) + x + centerX, (length/2) * Math.sin(-zRot - 1.5708) + height / 2 + y + centerY]
     var p3 = [(width/2)*Math.cos(-zRot - 3.1416) + x + centerX, (length/2) * Math.sin(-zRot - 3.1416) + height / 2 + y + centerY]
@@ -166,17 +166,9 @@ ctx2.lineTo(p82[0],p82[1])
 ctx2.stroke()
 
 const zSlider2 = document.getElementById("cubeZSlider2")
+const bugMode = document.getElementById("bugMode")
 zSlider2.addEventListener("input", () => {
-    const canvas2 = document.getElementById("cubeCanvas2")
-    const ctx2 = canvas2.getContext("2d")
-    var width2 = 400;
-    var height2 = 200;
-    var length2 = 200;
-    var zRot2 = 0;
-    var x2 = 0;
-    var y2 = 0
-    const centerX2 = canvas2.width/2
-    const centerY2 = canvas2.height/2
+    zRot2 = zSlider2.value / ((180 / Math.PI) * bugMode.value ? 1 : (180 / Math.PI));
     var p12 = [(width2/2)*Math.cos(-zRot2 - 0) + x2 + centerX2, (length2/2) * Math.sin(zRot2 - 0) + height2 / 2 + y2 + centerY2]; // for y rot (400/Math.cos(zRot) + x, ((length/2) * Math.sin(yRot)) * Math.sin(zRot - 0) + height / 2 + y)
     var p22 = [(width2/2)*Math.cos(-zRot2 - 1.5708) + x2 + centerX2, (length2/2) * Math.sin(-zRot2 - 1.5708) + height2 / 2 + y2 + centerY2]
     var p32 = [(width2/2)*Math.cos(-zRot2 - 3.1416) + x2 + centerX2, (length2/2) * Math.sin(-zRot2 - 3.1416) + height2 / 2 + y2 + centerY2]
@@ -189,6 +181,7 @@ zSlider2.addEventListener("input", () => {
     ctx2.strokeStyle = "black"
     ctx2.lineWidth = 5
     ctx2.lineCap = "round"
+    ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
     ctx2.beginPath()
     // 2p1
     ctx2.moveTo(p12[0],p12[1])
