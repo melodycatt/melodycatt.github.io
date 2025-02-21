@@ -1,9 +1,0 @@
-@font-face {
-    font-family: 'LanaPixel';
-    src: url('LanaPixel.woff2') format('woff2'),
-        url('LanaPixel.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-

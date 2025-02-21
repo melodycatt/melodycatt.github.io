@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Jua';
+    src: url('Jua-Regular.woff2') format('woff2'),
+        url('Jua-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

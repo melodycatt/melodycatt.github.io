@@ -1,0 +1,137 @@
+body {
+    flex-direction: column;
+    height: max-content;
+}
+
+input[type="range"] {
+    --value: 0.1%;
+    border: 1px solid #858585;
+    -webkit-appearance: none;
+    appearance: none;
+    background: linear-gradient(
+        to right,
+        #ff5ba2 0%,
+        #ff5ba2 var(--value),
+        rgb(59 59 59) var(--value),
+        rgb(59 59 59) 100%
+    );
+    width: 129px;
+    height: 6px;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+}
+
+input[type="range"]:hover {
+    border: 1px solid #858585;
+    background: linear-gradient(
+        to right,
+        #ff71af 0%,
+        #ff71af var(--value),
+        rgb(59 59 59) var(--value),
+        rgb(59 59 59) 100%
+    );
+}
+
+input[type="range"]:active {
+    border: 1px solid rgb(110 110 110);
+    background: linear-gradient(
+        to right,
+        #ff3f92 0%,
+        #ff3f92 var(--value),
+        rgb(59 59 59) var(--value),
+        rgb(59 59 59) 100%
+    );
+}
+
+input[type="range"]:active::-webkit-slider-thumb {
+    background-color: #ffd6e8;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 10px;
+    background-color: #ffd6e8;
+    position: relative;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    background-color: #ffd6e8;
+}
+
+input[type="range"]::-webkit-slider-thumb:active {
+    background-color: #ff3f92;
+}
+
+#bsbar {
+    background: linear-gradient(
+        to right,
+        rgb(255 199 38) 0%,
+        rgb(255 199 38) 0.1%,
+        rgb(59 59 59) 0.1%,
+        rgb(59 59 59) 100%
+    );
+    border: 1px solid #858585;
+    background-color: rgb(59 59 59);
+    width: 129px;
+    height: 6px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.bsball {
+    width: 15px;
+    height: 15px;
+    border-radius: 10px;
+    background-color: rgb(255 199 38);
+    position: relative;
+}
+
+#bsballContainer {
+    position: absolute;
+}
+
+#barslider {
+    display: flex;
+    align-items: center;
+}
+
+.slidercontainer {
+    margin-bottom: 150px;
+}
+
+#flappySlider::-webkit-slider-thumb {
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url(./img/flappybird.png);
+    background-size: contain;
+    border-radius: 0;
+    rotate: 90deg;
+}
+#flappySlider {
+    rotate: -90deg;
+}
+
+#wonkySlider::-webkit-slider-thumb {
+    background-color: rgba(0, 0, 0, 0);
+}
+#wonkySliderFill {
+    height: 129px;
+    width: 6px;
+    border-radius: 5px;
+    position: absolute;
+    background: linear-gradient(
+        to top,
+        rgba(255, 199, 38, 1) 0%,
+        rgba(255, 199, 38, 1) var(--value),
+        rgba(59, 59, 59, 0) var(--value),
+        rgba(59, 59, 59, 0) 100%
+    );
+    --value: 0%;
+}
+
+#funnyslider {
+    pointer-events: all;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>meow</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="bogus.css">
+        <script src="cube.js" defer></script>
+    </head>
+    <body>
+        <div style="position: absolute; top: 0;">if some of this stuff doesnt look right, it might be your browser. im not sure which ones will break, but i know that most popular ones like chrome and opera should work. not sure about firefox tho.</div>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div class="slidercontainer">
+            <canvas width="500" height="500" style="background-color: #ffd6e8; border: none; border-radius: 0;" id="cubeCanvas"></canvas>
+            <input type="range" name="slider" id="cubeZSlider" min="-360" max="360" value="0" step="1">
+        </div>
+        <div class="slidercontainer">
+            <canvas width="500" height="500" style="background-color: #ffd6e8; border: none; border-radius: 0;" id="cubeCanvas2"></canvas>
+            <input type="range" name="slider" id="cubeZSlider2" min="-360" max="360" value="0" step="1">
+            <input type="range" name="slider" id="bugMode" min="0" max="1" value="0" step="1">
+        </div>
+    </body>
+</html>
