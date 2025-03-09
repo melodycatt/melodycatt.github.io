@@ -118,3 +118,13 @@ setInterval(() => {
     slider.style.setProperty('--value', `${slidervalue}%`)
     slider.value = slidervalue
 }, 10);
+let e = (s) => document.getElementById(s);
+const bhinput = e('bluehairbox');
+const bh = e('bluehair');
+
+bhinput.addEventListener('input', (ev) => {
+	console.log(ev)
+    if (ev.target.value == "sobsobprayprayfish") {
+		bh.style.display = 'block';
+	} 
+});
