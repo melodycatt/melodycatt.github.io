@@ -1,0 +1,10 @@
+                <br><br>
+                things i think are pretty cool since i made this site:
+                <br><br><br><br><br><br><br>AHHHHJSAKHJDGAUGSKUDGKUSAHGDKJSGHDKJAHDJKASHDJKSAKJADSJKDHSCGSAHJDGKJDGSAKJDHSJKADGKJSADGKSADGKSs<br>
+                <div id="coolstuff">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/QEJpZjg8GuA?si=ipdD2h3M8QZqaws-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+
+                #coolstuff > * {
+                    /*display: inline-block;*/
+                }
