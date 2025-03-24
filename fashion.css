@@ -22,7 +22,7 @@ html, body {
 
 #content-container {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,7 +32,7 @@ html, body {
 }
 #content {
     width: 50%;
-    height: 100%;
+    min-height: 100%;
     background-color: rgba(10, 10, 10, 0.9);
     border: 15px outset rgb(39, 39, 39);
     display: flex;
@@ -134,5 +134,9 @@ input[type="range"]::-webkit-slider-thumb:active {
 }
 
 #bluehairbox {
+    pointer-events: all;
+}
+
+iframe {
     pointer-events: all;
 }
