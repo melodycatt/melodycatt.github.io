@@ -19,4 +19,13 @@ p {
 
 #article-text p {
     text-indent: 1em;
+    margin-bottom: 6px;
+}
+
+h1 {
+    margin-bottom: 15px;
+}
+
+h2 {
+    margin-bottom: 8px;
 }
