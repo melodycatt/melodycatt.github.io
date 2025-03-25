@@ -19,5 +19,9 @@ look, a lot of people wouldn't like this opinion, but i really dont get how you 
 
 and the same goes for gender. aside from, or maybe because of, the fact that ***it doesnt exist***, no one experiences gender the same! we all pretend we do... but like. tell me what gender feels like. where do you _feel_ it in your body, if that even makes sense? i bet it will be different to me.
 
+## "fetishisation"
+trans men can have tits. trans women can have dicks
+
 ## but melody.. [\[1\]]("#footnote1")
 **do pronouns equal gender?** no, but i think they're correlated. there's a reason most trans men use he/him and most trans women use she/her. we build a subconscious connection over our lives
+**
