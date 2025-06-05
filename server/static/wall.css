@@ -1,0 +1,12 @@
+#wall {
+    width: 1000ch;
+    height: 1000ch;
+    white-space: pre-wrap;           /* preserves whitespace, but allows wrapping */
+    word-break: break-word;          /* breaks long words */
+    overflow-wrap: break-word;       /* preferred for modern browsers */
+}
+pre {
+    white-space: pre-wrap;           /* preserves whitespace, but allows wrapping */
+    word-break: break-word;          /* breaks long words */
+    overflow-wrap: break-word;       /* preferred for modern browsers */
+}

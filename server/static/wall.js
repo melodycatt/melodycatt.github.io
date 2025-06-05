@@ -1,4 +1,25 @@
-const editor = document.getElementById("editor");
+const editor = document.getElementById("wall");
+
+let edit_timeout;
+let edit_buffer = [];
+function edit(f, ms) {
+    console.log
+    if(edit_timeout) {
+        clearInterval(edit_timeout);
+    }
+    edit_buffer.push(f)
+    edit_timeout = setTimeout(next_edit, ms)
+}
+
+function next_edit() {
+    if (edit_buffer.length > 0) {
+        edit_buffer[0]();
+        edit_buffer.shift()
+    }
+}
+
+text = requestAsync("GET", "/wall", (b) => editor.innerText = b);
+
 editor.addEventListener("keydown", (e) => {
     const sel = window.getSelection();
     if (!sel.rangeCount) return;
@@ -22,6 +43,10 @@ editor.addEventListener("keydown", (e) => {
             node.nodeValue = text.substring(0, index) + " " + text.substring(index + 1);
             setCaret(node, e.key === "Delete" ? index + 1 : index);
         }
+        edit(() => {requestAsync("POST", "/wall", next_edit,  JSON.stringify({
+            text: " ",
+            position: index
+        }))}, 1000);
         return;
     }
 
@@ -41,6 +66,10 @@ editor.addEventListener("keydown", (e) => {
             setCaret(node, pos + 1);
             
             console.log("Inserted:", e.key, "at position", pos);
+            edit(() => {requestAsync("POST", "/wall", next_edit,  JSON.stringify({
+                text: e.key,
+                position: pos
+            }))}, 1000);
         } else {
             e.preventDefault();
         }
@@ -63,3 +92,20 @@ function setCaret(node, pos) {
     sel.removeAllRanges();
     sel.addRange(range);
 }
+
+function sendEdit(value, pos) {
+
+}
+
+function requestAsync(method, theUrl, callback, body)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() { 
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            callback(xmlHttp.responseText);
+    }
+    xmlHttp.open(method, theUrl, true); // true for asynchronous 
+    xmlHttp.setRequestHeader('Content-Type', 'application/json');
+    xmlHttp.send(body);
+}
+
