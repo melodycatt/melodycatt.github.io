@@ -2,13 +2,17 @@ const editor = document.getElementById("wall");
 
 let edit_timeout;
 let edit_buffer = [];
-function edit(f, ms) {
-    console.log
+function edit(body) {
+    /*() => {requestAsync("POST", "/wall", next_edit,  JSON.stringify({
+                text: e.key,
+                position: pos
+            }))}, 1000
+    console.log*/
     if(edit_timeout) {
         clearInterval(edit_timeout);
     }
-    edit_buffer.push(f)
-    edit_timeout = setTimeout(next_edit, ms)
+    edit_buffer.push(body);
+    edit_timeout = setTimeout(() => { requestAsync("POST", "/wall", () => {edit_buffer = []}, JSON.stringify(edit_buffer)) }, 1000)
 }
 
 function next_edit() {
@@ -18,7 +22,11 @@ function next_edit() {
     }
 }
 
-text = requestAsync("GET", "/wall", (b) => editor.innerText = b);
+let text = requestAsync("GET", "/wall", (b) => {editor.innerText = b; editor.offsetHeight; console.log(b[0], b[0] === "\u{00A0}", b[0] === "\u{0020}", editor.innerText[0] === "\u{00A0}")});
+scroll = getUnits(editor, "width", "px");
+scroll = scroll.substring(0, scroll.length - 2) * 0.5
+console.log(scroll)
+window.scrollTo(4800, 4800);
 
 editor.addEventListener("keydown", (e) => {
     const sel = window.getSelection();
@@ -31,45 +39,84 @@ editor.addEventListener("keydown", (e) => {
         if (node.childNodes.length > 0) node = node.childNodes[0];
         else return;
     }
-
-    const pos = range.startOffset;
+    
+    let pos = range.startOffset;
     const text = node.nodeValue;
-
+    
+    if (e.key === "ArrowLeft" && text[pos - 1] === "\u{2060}") {
+        e.preventDefault()
+        setCaret(node, pos - 2);
+    }
+    if (e.key === "ArrowRight" && text[pos] === "\u{2060}") {
+        e.preventDefault()
+        setCaret(node, pos + 2);
+    }
+    if (e.key === "ArrowDown") {
+        e.preventDefault()
+        setCaret(node, pos + 2000);
+    }
+    if (e.key === "ArrowUp") {
+        e.preventDefault()
+        setCaret(node, pos - 2000);
+    }
     // Handle Backspace/Delete: replace character with space
     if (e.key === "Backspace" || e.key === "Delete") {
         e.preventDefault();
         let index = pos + (e.key === "Delete" ? 0 : -1);
+        if (text[index] === "\u{2060}") {
+            index -= 1;
+        }
+        if (index < 0 || index >= 1000000) return
         if (index >= 0 && index < text.length) {
-            node.nodeValue = text.substring(0, index) + " " + text.substring(index + 1);
+            node.nodeValue = text.substring(0, index) + "\u{00A0}" + text.substring(index + 1);
             setCaret(node, e.key === "Delete" ? index + 1 : index);
         }
-        edit(() => {requestAsync("POST", "/wall", next_edit,  JSON.stringify({
-            text: " ",
+        edit({
+            text: "\u{00A0}",
             position: index
-        }))}, 1000);
+        });
         return;
+    }
+
+    if (e.key === "Enter") {
+        e.preventDefault();
+            let index = pos + 1000;
+        setCaret(node, index);
+        return
     }
 
     // Allow only printable ASCII
     if (e.key.length === 1 && !e.ctrlKey && !e.metaKey) {
+        let key = e.key
+        if (e.key === " ") {
+            key = "\u{00A0}"
+            console.log( key === "\u{00A0}")
+        }
+        /*if (e.key === "|") {
+            //key = "\u{2758}";
+            key = "\u{23D0}";
+        }
+        if (e.key === "-") {
+            //key = "\u{2758}";
+            key = "\u{2011}";
+        }*/
+        if (pos < 0 || pos >= 1000000) return
         const code = e.key.charCodeAt(0);
         if (code >= 32 && code <= 126) {
             e.preventDefault();
-
-            // Overwrite at current position
-            if (pos < text.length) {
-                node.nodeValue = text.substring(0, pos) + e.key + text.substring(pos + 1);
-            } else {
-                // If caret is at end, append
-                node.nodeValue = text + e.key;
+            if (text[pos] === "\u{2060}") {
+                setCaret(node, pos + 1);
+                pos++;
             }
+            // Overwrite at current position
+            node.nodeValue = text.substring(0, pos) + key + text.substring(pos + 1);
             setCaret(node, pos + 1);
             
-            console.log("Inserted:", e.key, "at position", pos);
-            edit(() => {requestAsync("POST", "/wall", next_edit,  JSON.stringify({
-                text: e.key,
+            console.log("Inserted:", key, "at position", pos, key === "\u{00A0}");
+            edit({
+                text: key,
                 position: pos
-            }))}, 1000);
+            });
         } else {
             e.preventDefault();
         }
