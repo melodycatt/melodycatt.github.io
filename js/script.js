@@ -29,5 +29,5 @@ grained("#boxes", {
 })
 
 if (window.innerWidth / window.innerHeight < 9/6) {
-    document.body.innerText = "if youre on a phone, this website has an aspect ratio that doesnt fit on the screen. if youre not, make your window wider and reload."
+    document.body.innerText = "if youre on a phone, this website has an aspect ratio that doesnt fit on the screen. if youre not, make your window wider and reload. i even tried making it work on landscape mode but its a pain. sorryyyyyyyyyyyy"
 }
