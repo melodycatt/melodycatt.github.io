@@ -13,7 +13,7 @@ setInterval(() => {
 let char;
 const title = setInterval(() => {
     const c = Math.random();
-    if (c >= 0.25) {
+    if (c >= 0.20) {
         char = "&";
     } else {
         char = "*";
