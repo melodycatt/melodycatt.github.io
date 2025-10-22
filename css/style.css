@@ -1,0 +1,53 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-color: black;
+    color: white;
+}
+
+#content {
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    aspect-ratio: 9/6;
+    position:relative;
+}
+
+.box {
+    position: absolute;
+    border: 3px solid rgb(11, 222, 11);
+    visibility: hidden;
+}
+
+#boxes {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    background-position: -170px 0%;
+    background-image: url("../img/celltower.jpg");
+    background-size: cover;
+}
+
+#title {
+    font-size: 2.5em;
+    font-weight: 500;
+    font-feature-settings: 'calt', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'ss09', 'ss10', 'liga';
+    font-stretch: 100;
+    color: rgb(228, 255, 231);
+    font-family: 'Monaspace Neon', sans-serif;
+}
+
+#text {
+    position: absolute;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0);
+    width: 70%;
+    height: 100%;
+    right: 0;
+    top: 0
+}
