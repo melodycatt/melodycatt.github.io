@@ -4,6 +4,9 @@ html, body {
     margin: 0;
     background-color: black;
     color: white;
+    font-feature-settings: 'calt', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'ss09', 'ss10', 'liga';
+    font-family: 'Monaspace Neon', sans-serif;
+    cursor: crosshair;
 }
 
 #content {
@@ -31,23 +34,73 @@ html, body {
 }
 
 #title {
+    color: rgb(228, 255, 231);
     font-size: 2.5em;
     font-weight: 500;
-    font-feature-settings: 'calt', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'ss09', 'ss10', 'liga';
     font-stretch: 100;
-    color: rgb(228, 255, 231);
-    font-family: 'Monaspace Neon', sans-serif;
 }
 
-#text {
+#real_content {
     position: absolute;
     display:flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
     background-color: rgba(0, 0, 0, 0);
     width: 70%;
     height: 100%;
     right: 0;
-    top: 0
+    top: 0;
+}
+
+#bottom {
+    position: absolute;
+    bottom: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#top {
+    position: absolute;
+    top: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#buttons {
+    margin-top: 0.8em;
+    display: grid;
+    gap: 0.3em;
+    grid-template-columns: repeat(3, auto);
+}
+
+#lies {
+    font-size: 5px;
+}
+#stuffs {
+    font-size: 10px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+a:visited {
+    color: inherit;
+}
+a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 0.7px;
+}
+
+#overlay {
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
